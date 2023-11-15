@@ -1,5 +1,5 @@
 export function TodoSearch() {
   return (
-    <input placeholder='Cortar Cebolla' />
+    <input placeholder='Buscar' />
   );
 }

@@ -1,38 +1,111 @@
-.App {
-  text-align: center;
+main {
+  background: rgb(120, 211, 232);
+  background: linear-gradient(150deg, rgba(120, 211, 232, 1) 13%, rgba(31, 89, 107, 1) 80%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+div {
+  width: 540px;
+  height: 789px;
+  margin: 7%;
+  box-sizing: border-box;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#izquierda {
+  background-color: #b0e5f3;
+  padding: 77px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 16px;
 }
 
-.App-header {
-  background-color: #233553;
-  min-height: 100vh;
+#izquierda h2 {
+  font-size: 40px;
+}
+
+#izquierda p {
+  margin: 0;
+  margin-top: 8px;
+}
+
+input {
+  margin-top: 8px;
+  padding: 11px 10px;
+  font-size: 0.95rem;
+  border: 2px #818CF8 solid;
+  border-radius: 5px;
+  background: #e8e8e8;
+  height: 8px;
+  width: 150px;
+}
+
+#izquierda button {
+  margin-top: 16px;
+}
+
+#derecha {
+  padding: 60px;
+}
+
+#headDerecha {
+  justify-items: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #97ca3f;
+#title {
+  font-size: 68px;
+  font-weight: bold;
+  margin: 0;
+  background: linear-gradient(138deg, rgba(14,50,62,0.9) 14%, rgba(199,40,40,0.9) 55%, rgba(252,176,69,0.9) 100%);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#todosCompleted {
+  margin: 0;
+  margin-bottom: 16px;
+  font-size: larger;
+}
+
+ul {
+  padding: 0px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  background-color: #d4f6f9;
+  border: 1px solid #1c6b82;
+  margin: 8px 0px;
+  border-radius: 8px;
+  height: 36px;
+  width: 420px;
+}
+
+li span {
+  margin-left: 4px;
+}
+
+li p {
+  margin-left: 24px;
+  width: 300px;
+  overflow-wrap: break-word;
+}
+
+#x {
+  margin-left: 36px;
+}
+
+.true {
+  background-color: #edfafd;
+  border: 1px solid #1c6b82;
+}
+
+.true p {
+  text-decoration-line: line-through;
 }
