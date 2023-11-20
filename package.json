@@ -1,8 +1,8 @@
 {
+  "homepage": "https://ruben-mg.github.io/curso-react/",
   "name": "platzi-intro-react-base",
   "version": "0.1.0",
   "dependencies": {
-    "gh-pages": "^6.0.0",
     "react": "^18",
     "react-dom": "^18",
     "react-scripts": "5.0.1",
@@ -13,7 +13,7 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -32,5 +32,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://ruben-mg.github.io/curso-react/"
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
+  }
 }

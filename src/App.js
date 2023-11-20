@@ -7,13 +7,40 @@ import { CreateTask } from './CreateTask';
 import './App.css';
 
 const defaultTodos = [
-  { text: 'Comprar patatas', completed: true },
+  { text: 'Comprar patatas', completed: false },
   { text: 'Sacar al perro', completed: false },
   { text: 'Limpiar cocina', completed: false },
+  { text: 'Limpiar casa', completed: true },
   { text: 'Estudiar React', completed: true },
 ]
 
 function App() {
+  const [todos, setTodos] = React.useState(defaultTodos);
+  const [searchValue, setSearchValue] = React.useState('');
+
+  const todoCompletados = todos.filter(todo => todo.completed).length;
+  const todoTotal = todos.length;
+
+  const searchTodos = todos.filter(todo => { return todo.text.toLowerCase().includes(searchValue.toLowerCase()) });
+
+  const completeTodo = (text) => {
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex(
+      (todo) => todo.text === text
+    );
+    newTodos[todoIndex].completed = true;
+    setTodos(newTodos);
+  }
+
+  const deleteTodo = (text) => {
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex(
+      (todo) => todo.text === text
+    );
+    newTodos.splice(todoIndex, 1);
+    setTodos(newTodos);
+  }
+
   return (
     <>
       <div id='izquierda'>
@@ -24,17 +51,28 @@ function App() {
       <div id='derecha'>
         <section id='headDerecha'>
           <h1 id='title'>Your tasks</h1>
-          <TodoCounter completed={3} total={6} />
-          <TodoSearch />
+          <TodoCounter completed={todoCompletados} total={todoTotal} />
+          <TodoSearch
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+          />
+
 
         </section>
 
-        <TodoList>
-          {defaultTodos.map(todo => (
+        <TodoList
+          searchValue={searchValue}
+          todos={todos}
+          setTodos={setTodos}
+        >
+          {searchTodos.map(todo => (
             <TodoItem
               key={todo.text}
               text={todo.text}
-              completed={todo.completed} />))}
+              completed={todo.completed}
+              onComplete = {() => completeTodo(todo.text)}
+              onDelete = {() => deleteTodo(todo.text)}
+            />))}
         </TodoList>
 
       </div>
