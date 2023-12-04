@@ -5,6 +5,7 @@ import { TodoItem } from './TodoItem';
 import React from 'react';
 import { CreateTask } from './CreateTask';
 import './App.css';
+import image from '../src/img.png';
 
 const defaultTodos = [
   { text: 'Comprar patatas', completed: false },
@@ -17,11 +18,13 @@ const defaultTodos = [
 function App() {
   const [todos, setTodos] = React.useState(defaultTodos);
   const [searchValue, setSearchValue] = React.useState('');
+  const [newToDoValue, setNewToDoValue] = React.useState('');
 
   const todoCompletados = todos.filter(todo => todo.completed).length;
   const todoTotal = todos.length;
 
   const searchTodos = todos.filter(todo => { return todo.text.toLowerCase().includes(searchValue.toLowerCase()) });
+
 
   const completeTodo = (text) => {
     const newTodos = [...todos];
@@ -46,7 +49,13 @@ function App() {
       <div id='izquierda'>
         <h2>Create new task</h2>
         <p>Task</p>
-        <CreateTask />
+        <CreateTask
+          newToDoValue={newToDoValue}
+          setNewToDoValue={setNewToDoValue}
+          todos={todos}
+          setTodos={setTodos}
+        />
+        <img src={image} alt='mujerTodo' id='imagenToDo'></img>
       </div>
       <div id='derecha'>
         <section id='headDerecha'>
@@ -61,17 +70,18 @@ function App() {
         </section>
 
         <TodoList
-          searchValue={searchValue}
           todos={todos}
           setTodos={setTodos}
+
         >
+
           {searchTodos.map(todo => (
             <TodoItem
               key={todo.text}
               text={todo.text}
               completed={todo.completed}
-              onComplete = {() => completeTodo(todo.text)}
-              onDelete = {() => deleteTodo(todo.text)}
+              onComplete={() => completeTodo(todo.text)}
+              onDelete={() => deleteTodo(todo.text)}
             />))}
         </TodoList>
 

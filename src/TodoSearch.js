@@ -1,5 +1,6 @@
-export function TodoSearch({ searchValue, setSearchValue}) {
+export function TodoSearch({ searchValue, setSearchValue }) {
   return (
-    <input placeholder='Buscar' value={searchValue} onChange={(event) => { setSearchValue(event.target.value) }} />
+    <input placeholder='Buscar' value={searchValue} onChange={(event) => 
+      { setSearchValue(event.target.value) }} />
   );
 }

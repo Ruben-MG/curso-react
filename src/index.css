@@ -9,9 +9,8 @@ body {
 
 main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr 0.2fr 2fr 1fr;
   justify-items: center;
-  background-color: bisque;
 }
 
 code {
